@@ -25,6 +25,6 @@ class subMenu(elementMenu):
         self.optionList = paramOptions
     def execute(self):
         for optionElement in self.optionList:
-            print(optionElement.getNombre())
+            print("> "+optionElement.getNombre())
 
 
