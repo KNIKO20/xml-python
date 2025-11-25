@@ -17,14 +17,16 @@ class option(elementMenu):
         super().__init__(paramNombre, paramDescripcion)
         self.accion = paramAccion
     def execute(self):
-        print(self.nombre, self.descripcion, self.accion)
+        print(self.accion)
 class subMenu(elementMenu):
     optionList: list
     def __init__(self, paramNombre, paramDescripcion, paramOptions):
         super().__init__(paramNombre, paramDescripcion)
         self.optionList = paramOptions
-    def execute(self):
+    def showOptionList(self):
         for optionElement in self.optionList:
             print("> "+optionElement.getNombre())
+    def getOption(self, numberOption):
+        return self.optionList[numberOption]
 
 

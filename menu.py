@@ -26,14 +26,19 @@ class menu:
         self.title = title
         self.elementList = elementList
     def show(self):
-        print("*"* (len(self.title)+2))
-        print("*"+self.title+"*")
-        print("*"* (len(self.title)+2))
+        print(self.title)
         for element in self.elementList:
             print("[+] "+element.nombre)
     def selectSubMenu(self,numberOption):
         element = self.elementList[numberOption]
         print("-" * 4 + "[" + element.nombre +"]"+ "-" * 4)
-        element.execute()
-        #self.elementList = self.elementList[1:]
+        element.showOptionList()
+        numberOptionList = int(input("Selecciones una opción: "))
+        optionSelected = element.getOption(numberOptionList)
+        optionSelected.execute()
+
+        
+    
+
+
 
