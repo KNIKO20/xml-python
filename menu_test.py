@@ -11,10 +11,15 @@ title1 = """
                                                               
 """
 mainMenu = menu(title=title1)
+
+mainMenu.showSubMenu()
 mainMenu.selectSubMenu()
+
+
+
 #SOLO FUNCIONA EN WINDOWS
 if (platform == "win32"):
-    opciones = ["Opción 1", "Opción 2", "Opción 3", "Salir"]
+    opciones = mainMenu.showSubMenuOptions()
     seleccion = 0
 
     while True:
@@ -34,6 +39,7 @@ if (platform == "win32"):
             seleccion = (seleccion + 1) % len(opciones)
         elif tecla == b'\r':  # Enter
             print(f"Has elegido: {opciones[seleccion]}")
+            mainMenu.selectSubMenu(seleccion)
             if opciones[seleccion] == "Salir":
                 break
             break
