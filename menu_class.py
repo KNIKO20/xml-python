@@ -1,3 +1,4 @@
+
 class elementMenu:
     nombre: str
     descripcion: str
@@ -9,24 +10,28 @@ class elementMenu:
         return self.nombre
     def getDescripcion(self):
         return self.descripcion
-    def execute(self):
-        print(self.nombre, self.descripcion)
+
 class option(elementMenu):
-    accion: str
-    def __init__(self, paramNombre, paramDescripcion, paramAccion):
+
+    def __init__(self, paramNombre, paramDescripcion, funct=None):
         super().__init__(paramNombre, paramDescripcion)
-        self.accion = paramAccion
+        self.funcion = funct
     def execute(self):
-        print(self.accion)
+        self.funcion()
+
 class subMenu(elementMenu):
     optionList: list
-    def __init__(self, paramNombre, paramDescripcion, paramOptions):
+    def __init__(self, paramNombre, paramDescripcion, paramOptions=None, funct=None):
         super().__init__(paramNombre, paramDescripcion)
         self.optionList = paramOptions
+        self.funct = funct
+
     def showOptionList(self):
-        for optionElement in self.optionList:
-            print("> "+optionElement.getNombre())
+        for i,optionElement in enumerate(self.optionList) :
+            print(f"[{i}] {optionElement.getNombre()}")
+
     def getOption(self, numberOption):
         return self.optionList[numberOption]
-
+    def execute(self):
+        self.funct()
 
