@@ -1,3 +1,5 @@
+from numpy.ma.core import append
+
 from menu_class import option, subMenu
 import os
 
@@ -31,11 +33,14 @@ class menu:
         subMenu("Salir", "/Help",[])
     ]
 
-    def selectSubMenu(self):
+    option: int
+    def showSubMenu(self):
         print(self.title)
         for i, element in enumerate(self.elementList):
             print(f"[{i}] {element.nombre}")
-        numberOption = int(input("Selecciones una opción: "))
+        self.option = int(input("Selecciona una opcion: "))
+
+    def selectSubMenu(self,numberOption=None):
         if numberOption < 2 and numberOption >= 0:
             element = self.elementList[numberOption]
             print("-" * 4 + "[" + element.nombre +"]"+ "-" * 4)
@@ -45,6 +50,11 @@ class menu:
             optionSelected = element.getOption(numberOptionList)
             optionSelected.execute()
         print("Saliendo...")
+    def showSubMenuOptions(self):
+        subMenuArray = []
+        for element in self.elementList:
+            subMenuArray.append(element.nombre)
+        return subMenuArray
 
 
 
