@@ -55,8 +55,11 @@ class SubMenu(ElementMenu):
         for i, option_element in enumerate(self.option_list):
             print(f"[{i}] {option_element.get_nombre()}")
 
-    def get_option(self):
+    def get_array_options(self):
         return self.option_list
+
+    def get_option(self, number_option):
+        return self.option_list[number_option]
 
     def execute(self):
         self.funct()
