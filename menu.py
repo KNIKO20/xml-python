@@ -38,6 +38,7 @@ class Menu:
                     Option(
                         "Busqueda",
                         "/Help",
+                        self.busqueda
                     ),
                     Option("Salir", "/Help", self.back),
                 ],
@@ -61,6 +62,7 @@ class Menu:
                     Option(
                         "Busqueda",
                         "/Help",
+                        self.busqueda
                     ),
                     Option("Salir", "/Help", self.back),
                 ],
@@ -92,6 +94,9 @@ class Menu:
         else:
             self.show_submenu()
             self.select_option(int(input("Selecciona una opcion: ")))
+    
+    def busqueda(self):
+        print("Buscando...")
 
     def show_submenu(self):
         """
@@ -132,7 +137,8 @@ class Menu:
                     if opciones[seleccion] == "Salir":
                         self.show_windows_menu()
                     else:
-                        self.select_option(seleccion)
+                        option_selected = element.get_option(seleccion)
+                        option_selected.execute()
                     break
 
                 # Limpiar pantalla para redibujar
@@ -147,7 +153,7 @@ class Menu:
                 number_option_list = int(input("Selecciones una opción: "))
                 option_selected = element.get_option(number_option_list)
                 option_selected.execute()
-        print("Saliendo...")
+        self.back
 
     def array_submenu_options(self):
         """
@@ -165,7 +171,7 @@ class Menu:
         in other functions.
         """
         options_array = []
-        for option in submenu_selected.get_option():
+        for option in submenu_selected.get_array_options():
             options_array.append(option.get_nombre())
         return options_array
 
@@ -200,7 +206,7 @@ class Menu:
                         break
                     else:
                         self.select_option(seleccion)
-                    break
+                        break
 
                 # Limpiar pantalla para redibujar
 
