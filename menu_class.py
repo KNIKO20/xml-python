@@ -1,37 +1,63 @@
-
-class elementMenu:
+class ElementMenu:
+    """
+    Base class representing a generic menu element.
+    """
     nombre: str
     descripcion: str
+
     def __init__(self, paramNombre, paramDescripcion):
+        """
+        Initialize an ElementMenu instance.
+
+        Args:
+            paramNombre (str): The name of the element.
+            paramDescripcion (str): The description of the element.
+        """
         self.nombre = paramNombre
         self.descripcion = paramDescripcion
 
-    def getNombre(self):
+    def get_nombre(self):
         return self.nombre
+
     def getDescripcion(self):
         return self.descripcion
 
-class option(elementMenu):
 
+class Option(ElementMenu):
+    """
+    Represents a selectable option in a menu.
+
+    Inherits from ElementMenu and adds an executable function.
+    """
     def __init__(self, paramNombre, paramDescripcion, funct=None):
         super().__init__(paramNombre, paramDescripcion)
         self.funcion = funct
+
     def execute(self):
         self.funcion()
 
-class subMenu(elementMenu):
-    optionList: list
-    def __init__(self, paramNombre, paramDescripcion, paramOptions=None, funct=None):
+
+class SubMenu(ElementMenu):
+    """
+    Represents a submenu containing multiple options.
+
+    Inherits from ElementMenu and manages a list of Option objects.
+    """
+    option_list: list
+
+    def __init__(self, paramNombre, paramDescripcion, paramOptions=None,
+                 funct=None):
         super().__init__(paramNombre, paramDescripcion)
-        self.optionList = paramOptions
+        self.option_list = paramOptions
         self.funct = funct
 
-    def showOptionList(self):
-        for i,optionElement in enumerate(self.optionList) :
-            print(f"[{i}] {optionElement.getNombre()}")
+    def show_option_list(self):
+        for i, option_element in enumerate(self.option_list):
+            print(f"[{i}] {option_element.get_nombre()}")
 
-    def getOption(self, numberOption):
-        return self.optionList[numberOption]
+    def get_option(self):
+        return self.option_list
+
     def execute(self):
         self.funct()
 

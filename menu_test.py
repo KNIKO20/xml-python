@@ -1,22 +1,16 @@
-from menu import menu
+from menu import Menu
 
 
-title1 = """                                                                                                              
+TITLE1 = """                                                                                                              
 █████▄ ██ █████▄ ██     ██ ▄████▄ ██████ ██████ ▄█████ ▄████▄ 
 ██▄▄██ ██ ██▄▄██ ██     ██ ██  ██   ██   ██▄▄   ██     ██▄▄██ 
 ██▄▄█▀ ██ ██▄▄█▀ ██████ ██ ▀████▀   ██   ██▄▄▄▄ ▀█████ ██  ██ 
                                                               
 """
-mainMenu = menu(title=title1)
+mainMenu = Menu(title=TITLE1)
 
-mainMenu.showSubMenu()
-mainMenu.selectOption(int(input("Selecciona una opcion: ")))
-
-
-mainMenu.showWindowsMenu()
+# mainMenu.show_submenu()
+# mainMenu.select_option(int(input("Selecciona una opcion: ")))
 
 
-
-
-
-
+mainMenu.show_windows_menu()
