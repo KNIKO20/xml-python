@@ -23,6 +23,22 @@
 
 # 
 
+# Modificando un archivo XML
+# ElementTree proporciona una forma sencilla de construir documentos XML y escribirlos en archivos. El método ElementTree.write() sirve para este propósito.
+
+# Una vez creado, un objeto Element puede ser manipulado cambiando directamente sus campos (como Element.text), añadiendo y modificando atributos (método Element.set()), así como añadiendo nuevos hijos (por ejemplo con Element.append()).
+
+# Digamos que queremos añadir uno al rango de cada país, y añadir un atributo updated al elemento rango:
+
+# Copy
+# for rank in root.iter('rank'):
+#     new_rank = int(rank.text) + 1
+#     rank.text = str(new_rank)
+#     rank.set('updated', 'yes')
+
+# tree.write('output.xml')
+
+
 
 import xml.etree.ElementTree as ET
 tree = ET.parse('AQUI VA LA RUTA DEL DOCUEMENTO XML')
@@ -43,43 +59,36 @@ age.text = "30"
 tree = ET.ElementTree(root)
 tree.write("person.xml", encoding="utf-8", xml_declaration=True) # Formateo customizado 
 
-# Modificando un archivo XML
-# ElementTree proporciona una forma sencilla de construir documentos XML y escribirlos en archivos. El método ElementTree.write() sirve para este propósito.
-
-# Una vez creado, un objeto Element puede ser manipulado cambiando directamente sus campos (como Element.text), añadiendo y modificando atributos (método Element.set()), así como añadiendo nuevos hijos (por ejemplo con Element.append()).
-
-# Digamos que queremos añadir uno al rango de cada país, y añadir un atributo updated al elemento rango:
-
-# Copy
-# for rank in root.iter('rank'):
-#     new_rank = int(rank.text) + 1
-#     rank.text = str(new_rank)
-#     rank.set('updated', 'yes')
-
-# tree.write('output.xml')
-
-
 
 def menu():
-    match opcion:
-        case 1:
-            addInfo()
-        
-        case 2:
-            showInfo()
+    while True:
+        print("===== MENÚ PRINCIPAL =====\n")
+        print("1. Añadir libro")
+        print("2. Mostrar informacion")
+        print("3. Eliminar libro")
+        print("4. Busqueda")
+        print("0. Salir del menu")
+        opcion = input("Seleccione una opción: ")
+        match opcion:
+            case "1":
+                addInfo()
             
-        case 3:
-            deleteInfo()
+            case "2":
+                showInfo()
+                
+            case "3":
+                deleteInfo()
+                
+            case "4":
+                searchInfo()
             
-        case 4:
-            searchInfo()
-        
-        
-        
-        
-        
-        
-
+            case "0":
+                print("Saliendo del programa...")
+                break
+                
+            case _:
+                    print("Opción inválida, intente de nuevo.")
+            
 
 
 def addInfo():#Los libros tienen: nombre, autor y fecha de publicacion(tipo:date)
@@ -105,7 +114,6 @@ def addInfo():#Los libros tienen: nombre, autor y fecha de publicacion(tipo:date
     libro.append(fechaPublicacion) # meto fecha
 
 
-
 def showInfo():#formato -> {ID: 001 | Título: El Quijote | Autor: Cervantes | Disponible: Sí/No}
     # Parsear el archivo
     tree = ET.parse('AQUI VA LA RUTA DEL DOCUEMENTO XML')
@@ -115,28 +123,8 @@ def showInfo():#formato -> {ID: 001 | Título: El Quijote | Autor: Cervantes | D
         print("ID:",libro.attrib["id"],"| Título: ",libro.find("nombre").text," | Autor: ",libro.find("autor").text,
         "| Fecha de Publicación: ",libro.find("fechaPublicacion").text," Disponible: Sí/No")#
         print("-"*25)
+  
         
-
-def searchInfo():# Si el usuario busca por título o autor, listar todas las coincidencias. 
-    resultados = []
-    
-    search = input("¿Qué desea buscar?: ")  
-    for libro in root.findall("libro"):
-        autor = libro.find("autor").text
-        titulo = libro.find("titulo").text
-        
-        if autor==search or titulo==search:
-            print("Coincidente:")
-            print(showInfo)
-        
-
-
-def choose():# Permitir elegir el libro exacto por ID.  
-    return
-
-
-
-
 def deleteInfo(): # eliminar libro del catalogo
 # Tenga en cuenta que la modificación concurrente mientras se itera puede conducir a problemas, al igual que cuando se itera y modifica listas o diccionarios de Python. Por lo tanto, el ejemplo recoge primero todos los elementos coincidentes con root.findall(), y sólo entonces itera sobre la lista de coincidencias.
     delete = print("¿Que libro quiere eliminar?: ")
@@ -151,6 +139,23 @@ def deleteInfo(): # eliminar libro del catalogo
             elif x=='N':
                 print("Eliminacion cancelada")
                 return
+            
+
+def searchInfo():# Si el usuario busca por título o autor, listar todas las coincidencias. 
+    resultados = []
+    
+    search = input("¿Qué desea buscar?: ")  
+    for libro in root.findall("libro"):
+        autor = libro.find("autor").text
+        titulo = libro.find("titulo").text
+        
+        if autor==search or titulo==search:
+            print("Coincidente:")
+            print(showInfo)
+        
+
+def choose():# Permitir elegir el libro exacto por ID.  
+    return
 
 
 def saveInfo(): #El fichero XML deberá guardar la estructura definida en el XML Schema.
