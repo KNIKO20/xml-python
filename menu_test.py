@@ -1,4 +1,5 @@
 from menu import Menu
+from god_xml import GodXML
 import os 
 
 TITLE1 = """                                                                                                              
@@ -8,6 +9,14 @@ TITLE1 = """
                                                               
 """
 mainMenu = Menu(title=TITLE1)
+
+
+xml_manager = GodXML()
+
+available_files = xml_manager.buscar_ficheros('./')
+
+
+
 
 ls = os.listdir('.')
 print(ls)
