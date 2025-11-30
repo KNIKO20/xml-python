@@ -9,7 +9,7 @@ from borrow_manager import BorrowManager
 
         # Un nuevo XML:  
             # Hacer preguntas para crear el XML (libros y usarios)
-            
+        
             # Bucle libros:
                 # nombre: string
                 # autor: string

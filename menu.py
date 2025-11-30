@@ -1,8 +1,9 @@
 """Modules imported to detect the user's O.S. and to detect keys (arrows) """
-import msvcrt
+
 import os
 from sys import platform
-
+if(platform=="win32"):
+    import msvcrt
 from menu_class import Option, SubMenu
 
 GREEN = "\033[92m"
@@ -213,4 +214,8 @@ class Menu:
                 os.system("cls")
         else:
             self.show_submenu()
-            self.select_option(int(input("Selecciona una opcion: ")))
+            option_selected = int(input("Selecciona una opcion: "))
+            if(option_selected==len(self.element_list)-1):
+                print("Saliendo...")
+            else:
+                self.select_option(option_selected)
