@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IES_Pio_Baroja>
+    <Ensenanzas>
+    <!-- Familia: Actividades Físicas y Deportivas -->
+    <Ciclo>
+        <Nombre>CFGS ENSEÑANZA Y ANIMACIÓN SOCIODEPORTIVA</Nombre>
+        <Familia>Actividades Físicas y Deportivas</Familia>
+        <Grado>Superior</Grado>
+        <Modalidad>Normal</Modalidad>
+        <Turno>Mañana</Turno>
+        <Departamento>Departamento de Educación Física</Departamento>
+    </Ciclo>
+
+    <Ciclo>
+        <Nombre>CFGS ENSEÑANZA Y ANIMACIÓN SOCIODEPORTIVA (BILINGÜE)</Nombre>
+        <Familia>Actividades Físicas y Deportivas</Familia>
+        <Grado>Superior</Grado>
+        <Modalidad>Bilingüe</Modalidad>
+        <Turno>Mañana</Turno>
+        <Departamento>Departamento de Educación Física</Departamento>
+    </Ciclo>
+
+    <Ciclo>
+        <Nombre>CFGM GUÍA EN EL MEDIO NATURAL Y DE TIEMPO LIBRE</Nombre>
+        <Familia>Actividades Físicas y Deportivas</Familia>
+        <Grado>Medio</Grado>
+        <Modalidad>Normal</Modalidad>
+        <Turno>Mañana</Turno>
+        <Departamento>Departamento de Actividades Extraescolares</Departamento>
+    </Ciclo>
+
+    <Ciclo>
+        <Nombre>CFGB ACCESO Y MANTENIMIENTO DE INSTALACIONES DEPORTIVAS</Nombre>
+        <Familia>Actividades Físicas y Deportivas</Familia>
+        <Grado>Básico</Grado>
+        <Modalidad>Normal</Modalidad>
+        <Turno>Mañana</Turno>
+        <Departamento>Departamento de Educación Física</Departamento>
+    </Ciclo>
+
+    <!-- Familia: Administración y Gestión -->
+    <Ciclo>
+        <Nombre>CFGS ADMINISTRACIÓN Y FINANZAS</Nombre>
+        <Familia>Administración y Gestión</Familia>
+        <Grado>Superior</Grado>
+        <Modalidad>Normal</Modalidad>
+        <Turno>Mañana</Turno>
+        <Departamento>Departamento de Administración</Departamento>
+    </Ciclo>
+
+    <Ciclo>
+        <Nombre>CFGS ASISTENCIA A LA DIRECCIÓN</Nombre>
+        <Familia>Administración y Gestión</Familia>
+        <Grado>Superior</Grado>
+        <Modalidad>Normal</Modalidad>
+        <Turno>Tarde</Turno>
+        <Departamento>Departamento de Administración</Departamento>
+    </Ciclo>
+
+    <Ciclo>
+        <Nombre>CFGM GESTIÓN ADMINISTRATIVA</Nombre>
+        <Familia>Administración y Gestión</Familia>
+        <Grado>Medio</Grado>
+        <Modalidad>Normal</Modalidad>
+        <Turno>Mañana</Turno>
+        <Departamento>Departamento de Administración</Departamento>
+    </Ciclo>
+
+    <!-- Familia: Comercio y Marketing -->
+    <Ciclo>
+        <Nombre>CFGS COMERCIO INTERNACIONAL</Nombre>
+        <Familia>Comercio y Marketing</Familia>
+        <Grado>Superior</Grado>
+        <Modalidad>Normal</Modalidad>
+        <Turno>Mañana</Turno>
+        <Departamento>Familia Profesional Comercio y Marketing</Departamento>
+    </Ciclo>
+
+    <Ciclo id="c09">
+        <Nombre>CFGS MARKETING Y PUBLICIDAD</Nombre>
+        <Familia>Comercio y Marketing</Familia>
+        <Grado>Superior</Grado>
+        <Modalidad>Intensiva</Modalidad>
+        <Turno>Mañana</Turno>
+        <Departamento>Familia Profesional Comercio y Marketing</Departamento>
+    </Ciclo>
+
+    <Ciclo>
+        <Nombre>CFGM ACTIVIDADES COMERCIALES - PRIMERO (MAÑANA)</Nombre>
+        <Familia>Comercio y Marketing</Familia>
+        <Grado>Medio</Grado>
+        <Modalidad>Normal</Modalidad>
+        <Turno>Mañana</Turno>
+        <Departamento>Familia Profesional Comercio y Marketing</Departamento>
+    </Ciclo>
+
+    <Ciclo>
+        <Nombre>CFGM ACTIVIDADES COMERCIALES - PRIMERO (TARDE)</Nombre>
+        <Familia>Comercio y Marketing</Familia>
+        <Grado>Medio</Grado>
+        <Modalidad>Normal</Modalidad>
+        <Turno>Tarde</Turno>
+        <Departamento>Familia Profesional Comercio y Marketing</Departamento>
+    </Ciclo>
+
+    <Ciclo>
+        <Nombre>CFGB SERVICIOS COMERCIALES - PRIMERO (MAÑANA)</Nombre>
+        <Familia>Comercio y Marketing</Familia>
+        <Grado>Básico</Grado>
+        <Modalidad>Normal</Modalidad>
+        <Turno>Mañana</Turno>
+        <Departamento>Familia Profesional Comercio y Marketing</Departamento>
+    </Ciclo>
+
+    <Ciclo>
+        <Nombre>CFGB SERVICIOS COMERCIALES - PRIMERO (TARDE)</Nombre>
+        <Familia>Comercio y Marketing</Familia>
+        <Grado>Básico</Grado>
+        <Modalidad>Normal</Modalidad>
+        <Turno>Tarde</Turno>
+        <Departamento>Familia Profesional Comercio y Marketing</Departamento>
+    </Ciclo>
+
+    <!-- Familia: Informática y Comunicaciones -->
+    <Ciclo>
+        <Nombre>CFGS DESARROLLO DE APLICACIONES WEB (BILINGÜE)</Nombre>
+        <Familia>Informática y Comunicaciones</Familia>
+        <Grado>Superior</Grado>
+        <Modalidad>Bilingüe</Modalidad>
+        <Turno>Mañana</Turno>
+        <Departamento>Familia Profesional Informática y Comunicaciones</Departamento>
+    </Ciclo>
+
+    <Ciclo>
+        <Nombre>CFGS DESARROLLO DE APLICACIONES WEB (INTENSIVA)</Nombre>
+        <Familia>Informática y Comunicaciones</Familia>
+        <Grado>Superior</Grado>
+        <Modalidad>Intensiva</Modalidad>
+        <Turno>Mañana</Turno>
+        <Departamento>Familia Profesional Informática y Comunicaciones</Departamento>
+    </Ciclo>
+
+    <Ciclo>
+        <Nombre>CFGM SISTEMAS MICROINFORMÁTICOS Y REDES</Nombre>
+        <Familia>Informática y Comunicaciones</Familia>
+        <Grado>Medio</Grado>
+        <Modalidad>Normal</Modalidad>
+        <Turno>Tarde</Turno>
+        <Departamento>Familia Profesional Informática y Comunicaciones</Departamento>
+    </Ciclo>
+
+    <!-- Familia: Servicios Socioculturales y a la Comunidad -->
+    <Ciclo>
+        <Nombre>CFGS EDUCACIÓN INFANTIL</Nombre>
+        <Familia>Servicios Socioculturales y a la Comunidad</Familia>
+        <Grado>Superior</Grado>
+        <Modalidad>Normal</Modalidad>
+        <Turno>Mañana</Turno>
+        <Departamento>Familia Profesional Servicios Socioculturales</Departamento>
+    </Ciclo>
+
+    <Ciclo>
+        <Nombre>CFGS INTEGRACIÓN SOCIAL</Nombre>
+        <Familia>Servicios Socioculturales y a la Comunidad</Familia>
+        <Grado>Superior</Grado>
+        <Modalidad>Normal</Modalidad>
+        <Turno>Mañana y Tarde</Turno>
+        <Departamento>Familia Profesional Servicios Socioculturales</Departamento>
+    </Ciclo>
+
+    <!-- FP modalidad virtual -->
+    <Ciclo>
+        <Nombre>FP MODALIDAD VIRTUAL - IPE VIRTUAL</Nombre>
+        <Familia>FP Modalidad Virtual</Familia>
+        <Grado>Desconocido</Grado>
+        <Modalidad>Virtual</Modalidad>
+        <Turno>Mañana</Turno>
+        <Departamento>Distancia / Modalidad Virtual</Departamento>
+        <Observaciones>Contacto: distancia.ies.piobaroja.madrid@educa.madrid.org</Observaciones>
+    </Ciclo>
+
+    </Ensenanzas>
+</IES_Pio_Baroja>
