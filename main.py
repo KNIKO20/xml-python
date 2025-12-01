@@ -43,6 +43,9 @@ from borrow_manager import BorrowManager
                 # PRESTAMO: 
                 # DEVOLUCION:
 
+# creo que vamos hacer mas eficientes si cada
+# uno se adjudica una funcion del packete xml
+
 
 if __name__ == "__main__" :
 

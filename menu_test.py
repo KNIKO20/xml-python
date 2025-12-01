@@ -13,7 +13,9 @@ mainMenu = Menu(title=TITLE1)
 
 xml_manager = GodXML()
 
-available_files = xml_manager.buscar_ficheros('./')
+# available_files = xml_manager.buscar_ficheros('./')
+# ['nombre.xml', 'institutoKNVF.xml']
+
 
 
 
