@@ -9,7 +9,7 @@ from borrow_manager import BorrowManager
 
         # Un nuevo XML:  
             # Hacer preguntas para crear el XML (libros y usarios)
-            
+        
             # Bucle libros:
                 # nombre: string
                 # autor: string
@@ -42,6 +42,9 @@ from borrow_manager import BorrowManager
             # 3 GESTION PRESTAMOS:
                 # PRESTAMO: 
                 # DEVOLUCION:
+
+# creo que vamos hacer mas eficientes si cada
+# uno se adjudica una funcion del packete xml
 
 
 if __name__ == "__main__" :
