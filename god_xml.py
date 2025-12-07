@@ -22,6 +22,7 @@ class GodXML():
 
         # except Exception as e:
         #     print(e)
+        
 
     
     def anyadir_elemento(self, parentName: str, childName:str, text_del_Elemento: str, attributes = dict ({})): #Aquí quieres pasar 'libro', 'nombre', 'textonombre', 'atributosNombre', nuevoelemento (en este caso autor), nombre, atributos (si tuviese) (etc todo en una linea?????)
@@ -33,7 +34,7 @@ class GodXML():
         
             childElement = ET.SubElement(parentElement, childName)
             
-           
+            
         else:
             childElement=ET.SubElement (self.root, childName)
 
@@ -46,15 +47,25 @@ class GodXML():
         tree = ET.ElementTree(self.root)
         tree.write(self.filename, encoding="utf-8", xml_declaration=True)
 
-
-    def eliminar_elementos(self, elementXPath: str):
-        parent_map = {child: parent for parent in self.root.iter() for child in parent}
-
-        for el in self.root.findall(elementXPath):
-            parent_map[el].remove(el)
+    def modificar_elemento (self, texto_del_Elem :str, identificador: str, nombre_atr: str, nuevo_nombre_atr: str, nuevo_nombre_elem: str ): #nO RECUERDO POR QUÉ PUSE RUTA 
+        
+        #Primero se pide el id. 
+        #Después, se busca ese id en todos los nombres y atributos
+        for elemento in self.root.iter():
+            print(elemento)
+            if elemento.attrib.get("id") == identificador: #Para saber el id. #Dentro de attrib, que devuelve dic de atrib, coges el id, te devuelve el nombre del id
+            
+                    print (elemento.attrib.get("id")) 
+                    #JURARÍA QUE TENGO QUE PREGUNTAR SI QUIERE CAMBIAR EL TXT DE ESA ETIQUETA O LA ETIQUETA EN SÍ, o el atributo
+                    elemento.text= texto_del_Elem #Esto cuidado, no es un método (), son variables =....
+                    elemento.set(nombre_atr, nuevo_nombre_atr) #Esto sería para cambiar el atributo, no funciona con el nombre del elemento...
+                    elemento.tag = nuevo_nombre_elem
     
-
-
+        #Al encontrarlo, tienes que guardar el child.name, y recorrerlo
+        #Preguntar qué (de los subhijos) quiere modificar.
+        
+        
+    
 
     
     
