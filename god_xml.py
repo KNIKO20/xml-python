@@ -83,22 +83,22 @@ def añadir_elemento(parentName: str = None, childName: str = ''):
 # añadir_elemento('libros', 'libro')
 
 
-xml_jonathan= GodXML() #INSTANCIa la CLASE
-xml_jonathan.cargar_fichero('nombre.xml')
-#xml_jonathan.anyadir_elemento(None , 'libros', None)
-#xml_jonathan.anyadir_elemento('libros', 'librito','ñamñam' ) #Chicos al llamar a este método, recuerden meter dicionarios en el atributo; si no dejenlo vacío (SIN NONE)
-xml_jonathan.anyadir_elemento(None, 'usuarios', None)
-atributos= {'id': 'ñamñam'}
-xml_jonathan.anyadir_elemento('usuarios', 'user', None, atributos)
+# xml_jonathan= GodXML() #INSTANCIa la CLASE
+# xml_jonathan.cargar_fichero('nombre.xml')
+# #xml_jonathan.anyadir_elemento(None , 'libros', None)
+# #xml_jonathan.anyadir_elemento('libros', 'librito','ñamñam' ) #Chicos al llamar a este método, recuerden meter dicionarios en el atributo; si no dejenlo vacío (SIN NONE)
+# xml_jonathan.anyadir_elemento(None, 'usuarios', None)
+# atributos= {'id': 'ñamñam'}
+# xml_jonathan.anyadir_elemento('usuarios', 'user', None, atributos)
 
-xml_jonathan.anyadir_elemento('usuarios/user', 'name', 'Andrea')
-xml_jonathan.anyadir_elemento('usuarios/user', 'apellidos', 'Dev' )
-xml_jonathan.anyadir_elemento('usuarios/user', 'correo', 'yupiii, funciona:)' )
-xml_jonathan.anyadir_elemento('usuarios/user', 'fechaNacimiento', '28/12/2001' )
-
-
+# xml_jonathan.anyadir_elemento('usuarios/user', 'name', 'Andrea')
+# xml_jonathan.anyadir_elemento('usuarios/user', 'apellidos', 'Dev' )
+# xml_jonathan.anyadir_elemento('usuarios/user', 'correo', 'yupiii, funciona:)' )
+# xml_jonathan.anyadir_elemento('usuarios/user', 'fechaNacimiento', '28/12/2001' )
 
 
-xml_jonathan.guardar_cambios ()
+
+
+# xml_jonathan.guardar_cambios ()
 # xml_jonathan.eliminar_elemento('lixbro')
 

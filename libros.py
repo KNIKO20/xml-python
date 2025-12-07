@@ -90,75 +90,84 @@ def menu():
                     print("Opción inválida, intente de nuevo.")
             
 
-
-def addInfo():#Los libros tienen: nombre, autor y fecha de publicacion(tipo:date)
-    root = ET.Element("biblioteca")
-    libro = ET.Element("libro")
-    libro.set()
-    #Añado el tiutlo del libro
-    nombre = ET.Element("nombre")
-    nombre.text = input("Escriba el título del libro: ")
+class libro():
+    nombre=None
+    autor = None
+    fechaPublicacion= None
     
-    #Añado autor del libro
-    autor = ET.Element("autor")
-    autor.text = input("Escriba el autor del libro: ")
+    def __init__(self,nombre,autor,fechPublicacion):
+       self.nombre=nombre
+       self.autor = autor
+       self.fechaPublicacion = fechPublicacion
     
-    fechaPublicacion = ET.Element("fechaPublicacion")
-    fechaPublicacion.text = input("Escriba la fecha de publicación del libro (YYYY-MM-DD): ")
-    
-    #Añado elementos hijo a "libro", y libro a "biblioteca"
-    
-    root.append(libro)#meto libro
-    libro.append(nombre) # meto nombre
-    libro.append(autor) #meto autor
-    libro.append(fechaPublicacion) # meto fecha
-
-
-def showInfo():#formato -> {ID: 001 | Título: El Quijote | Autor: Cervantes | Disponible: Sí/No}
-    # Parsear el archivo
-    tree = ET.parse('AQUI VA LA RUTA DEL DOCUEMENTO XML')
-    root = tree.getRoot() 
-    
-    for libro in root.findall("libro"):
-        print("ID:",libro.attrib["id"],"| Título: ",libro.find("nombre").text," | Autor: ",libro.find("autor").text,
-        "| Fecha de Publicación: ",libro.find("fechaPublicacion").text," Disponible: Sí/No")#
-        print("-"*25)
-  
+    def addInfo():#Los libros tienen: nombre, autor y fecha de publicacion(tipo:date)
+        root = ET.Element("biblioteca")
+        libro = ET.Element("libro")
+        libro.set()
+        #Añado el tiutlo del libro
+        nombre = ET.Element("nombre")
+        nombre.text = input("Escriba el título del libro: ")
         
-def deleteInfo(): # eliminar libro del catalogo
-# Tenga en cuenta que la modificación concurrente mientras se itera puede conducir a problemas, al igual que cuando se itera y modifica listas o diccionarios de Python. Por lo tanto, el ejemplo recoge primero todos los elementos coincidentes con root.findall(), y sólo entonces itera sobre la lista de coincidencias.
-    delete = print("¿Que libro quiere eliminar?: ")
+        #Añado autor del libro
+        autor = ET.Element("autor")
+        autor.text = input("Escriba el autor del libro: ")
+        
+        fechaPublicacion = ET.Element("fechaPublicacion")
+        fechaPublicacion.text = input("Escriba la fecha de publicación del libro (YYYY-MM-DD): ")
+        
+        #Añado elementos hijo a "libro", y libro a "biblioteca"
+        
+        root.append(libro)#meto libro
+        libro.append(nombre) # meto nombre
+        libro.append(autor) #meto autor
+        libro.append(fechaPublicacion) # meto fecha
+
+
+    def showInfo():#formato -> {ID: 001 | Título: El Quijote | Autor: Cervantes | Disponible: Sí/No}
+        # Parsear el archivo
+        tree = ET.parse('AQUI VA LA RUTA DEL DOCUEMENTO XML')
+        root = tree.getRoot() 
+        
+        for libro in root.findall("libro"):
+            print("ID:",libro.attrib["id"],"| Título: ",libro.find("nombre").text," | Autor: ",libro.find("autor").text,
+            "| Fecha de Publicación: ",libro.find("fechaPublicacion").text," Disponible: Sí/No")#
+            print("-"*25)
     
-    for libro in root.findall("libro"):
-        if libro.find("nombre").text == delete:
-            print("Libro encontrado: ",showInfo())
-            x = print("\n¿Quieres eliminar este libro? (S/N)")
-            if x=='S':
-                root.remove(libro)
-                print("Libro eliminado")
-            elif x=='N':
-                print("Eliminacion cancelada")
-                return
+            
+    def deleteInfo(): # eliminar libro del catalogo
+    # Tenga en cuenta que la modificación concurrente mientras se itera puede conducir a problemas, al igual que cuando se itera y modifica listas o diccionarios de Python. Por lo tanto, el ejemplo recoge primero todos los elementos coincidentes con root.findall(), y sólo entonces itera sobre la lista de coincidencias.
+        delete = print("¿Que libro quiere eliminar?: ")
+        
+        for libro in root.findall("libro"):
+            if libro.find("nombre").text == delete:
+                print("Libro encontrado: ",showInfo())
+                x = print("\n¿Quieres eliminar este libro? (S/N)")
+                if x=='S':
+                    root.remove(libro)
+                    print("Libro eliminado")
+                elif x=='N':
+                    print("Eliminacion cancelada")
+                    return
+                
+
+    def searchInfo():# Si el usuario busca por título o autor, listar todas las coincidencias. 
+        resultados = []
+        
+        search = input("¿Qué desea buscar?: ")  
+        for libro in root.findall("libro"):
+            autor = libro.find("autor").text
+            titulo = libro.find("titulo").text
+            
+            if autor==search or titulo==search:
+                print("Coincidente:")
+                print(showInfo)
             
 
-def searchInfo():# Si el usuario busca por título o autor, listar todas las coincidencias. 
-    resultados = []
+    def choose():# Permitir elegir el libro exacto por ID.  
+        return
+
+
+    def saveInfo(): #El fichero XML deberá guardar la estructura definida en el XML Schema.
+        return
+
     
-    search = input("¿Qué desea buscar?: ")  
-    for libro in root.findall("libro"):
-        autor = libro.find("autor").text
-        titulo = libro.find("titulo").text
-        
-        if autor==search or titulo==search:
-            print("Coincidente:")
-            print(showInfo)
-        
-
-def choose():# Permitir elegir el libro exacto por ID.  
-    return
-
-
-def saveInfo(): #El fichero XML deberá guardar la estructura definida en el XML Schema.
-    return
-
- 
