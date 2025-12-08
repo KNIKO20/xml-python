@@ -69,13 +69,15 @@ if __name__ == "__main__" :
     if opcion > 1:
         xml_manager.cargar_fichero(available_files[opcion - 1])
     else:
-        pass
+        xml_manager.init_fichero()
+        xml_manager.guardar_cambios()
+
 
     TITLE1 = f"""                                                                                                              
         █████▄ ██ █████▄ ██     ██ ▄████▄ ██████ ██████ ▄█████ ▄████▄ 
         ██▄▄██ ██ ██▄▄██ ██     ██ ██  ██   ██   ██▄▄   ██     ██▄▄██ 
         ██▄▄█▀ ██ ██▄▄█▀ ██████ ██ ▀████▀   ██   ██▄▄▄▄ ▀█████ ██  ██
-        {available_files[opcion - 1]}
+        {xml_manager.filename} {'Nuevo archivo' if opcion - 1 == 0 else ''}
     """
     mainMenu = Menu(title=TITLE1)
 

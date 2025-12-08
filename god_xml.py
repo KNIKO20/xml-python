@@ -1,4 +1,5 @@
 import xml.etree.ElementTree as ET
+from datetime import datetime
 
 
 class GodXML():
@@ -12,6 +13,15 @@ class GodXML():
         import os
         with os.scandir(workdir) as ficheros:
             return [fichero.name for fichero in ficheros if fichero.is_file() and fichero.name.endswith('.xml')]
+        
+    def init_fichero(self):
+        
+        self.root = ET.Element('biblioteca')
+        ET.SubElement(self.root, 'libros')
+        ET.SubElement(self.root, 'usuarios')
+        ET.SubElement(self.root, 'prestamos')
+
+        self.filename = 'Biblioteca_' + datetime.now().strftime('%Y%m%d_%H%M%S') + '.xml'
 
     #  Este metodo carga un fichero en la instancia de GodXML.
     def cargar_fichero(self, nombre: str ):
@@ -23,8 +33,6 @@ class GodXML():
         # except Exception as e:
         #     print(e)
         
-
-    
     def anyadir_elemento(self, parentName: str, childName:str, text_del_Elemento: str, attributes = dict ({})): #Aquí quieres pasar 'libro', 'nombre', 'textonombre', 'atributosNombre', nuevoelemento (en este caso autor), nombre, atributos (si tuviese) (etc todo en una linea?????)
         # try:
         if parentName is not None:
@@ -73,43 +81,50 @@ class GodXML():
 
         
 
-def añadir_elemento(parentName: str = None, childName: str = ''):
-    # TODO: Borrar esta parte que caraga el XML, porque deberia estar en otra funcion.
-    fichero = ET.parse('nombre.xml')
+# def añadir_elemento(parentName: str = None, childName: str = ''):
+#     # TODO: Borrar esta parte que caraga el XML, porque deberia estar en otra funcion.
+#     fichero = ET.parse('nombre.xml')
 
-    # Asumimos que cada vez que el archivo sea seleccionado para añadir simpre va a tener un root que es el padre de todos.
-    root = fichero.getroot()
+#     # Asumimos que cada vez que el archivo sea seleccionado para añadir simpre va a tener un root que es el padre de todos.
+#     root = fichero.getroot()
 
 
-    if parentName is not None:
-        parentElement = root.find(parentName)
-        childElement = ET.SubElement(parentElement, childName)
+#     if parentName is not None:
+#         parentElement = root.find(parentName)
+#         childElement = ET.SubElement(parentElement, childName)
 
     
     
     
-    tree = ET.ElementTree(root)
-    tree.write('nombre.xml', encoding="utf-8", xml_declaration=True)
+#     tree = ET.ElementTree(root)
+#     tree.write('nombre.xml', encoding="utf-8", xml_declaration=True)
 
 # añadir_elemento('libros', 'libro')
 
 
-xml_jonathan= GodXML() #INSTANCIa la CLASE
-xml_jonathan.cargar_fichero('nombre.xml')
+# xml_jonathan= GodXML() #INSTANCIa la CLASE
+# xml_jonathan.cargar_fichero('nombre.xml')
+
+
+
 #xml_jonathan.anyadir_elemento(None , 'libros', None)
 #xml_jonathan.anyadir_elemento('libros', 'librito','ñamñam' ) #Chicos al llamar a este método, recuerden meter dicionarios en el atributo; si no dejenlo vacío (SIN NONE)
-xml_jonathan.anyadir_elemento(None, 'usuarios', None)
-atributos= {'id': 'ñamñam'}
-xml_jonathan.anyadir_elemento('usuarios', 'user', None, atributos)
-
-xml_jonathan.anyadir_elemento('usuarios/user', 'name', 'Andrea')
-xml_jonathan.anyadir_elemento('usuarios/user', 'apellidos', 'Dev' )
-xml_jonathan.anyadir_elemento('usuarios/user', 'correo', 'yupiii, funciona:)' )
-xml_jonathan.anyadir_elemento('usuarios/user', 'fechaNacimiento', '28/12/2001' )
 
 
 
 
-xml_jonathan.guardar_cambios ()
+# xml_jonathan.anyadir_elemento(None, 'usuarios', None)
+# atributos= {'id': 'ñamñam'}
+# xml_jonathan.anyadir_elemento('usuarios', 'user', None, atributos)
+
+# xml_jonathan.anyadir_elemento('usuarios/user', 'name', 'Andrea')
+# xml_jonathan.anyadir_elemento('usuarios/user', 'apellidos', 'Dev' )
+# xml_jonathan.anyadir_elemento('usuarios/user', 'correo', 'yupiii, funciona:)' )
+# xml_jonathan.anyadir_elemento('usuarios/user', 'fechaNacimiento', '28/12/2001' )
+
+
+
+
+# xml_jonathan.guardar_cambios ()
 # xml_jonathan.eliminar_elemento('lixbro')
 
