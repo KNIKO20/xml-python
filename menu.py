@@ -2,6 +2,8 @@
 
 import os
 from sys import platform
+from user_manager import UserManager
+
 if(platform=="win32"):
     import msvcrt
 from menu_class import Option, SubMenu
@@ -17,7 +19,7 @@ GRAY = "\x1b[90m"
 class Menu:
     """Class representing a menu interface."""
 
-    def __init__(self, title):
+    def __init__(self, title, user_manager: UserManager):
         self.title = title
         self.element_list = [
             SubMenu(
@@ -27,19 +29,22 @@ class Menu:
                     Option(
                         "Añadir",
                         "/Help",
+                        user_manager.add
                     ),
                     Option(
                         "Mostrar",
                         "/Help",
+                        user_manager.show
                     ),
                     Option(
                         "Eliminar",
                         "/Help",
+                        user_manager.delete
                     ),
                     Option(
                         "Busqueda",
                         "/Help",
-                        self.busqueda
+                        user_manager.search
                     ),
                     Option("Salir", "/Help", self.back),
                 ],
@@ -146,14 +151,16 @@ class Menu:
 
                 os.system("cls")
         else:
-            if 0 <= number_option <= len(self.element_list):
-                element = self.element_list[number_option]
-                print("-" * 4 + "[" + element.nombre + "]" + "-" * 4)
-                element.show_option_list()
+            while True:
+                if 0 <= number_option <= len(self.element_list):
+                    element = self.element_list[number_option]
+                    print("-" * 4 + "[" + element.nombre + "]" + "-" * 4)
+                    element.show_option_list()
 
-                number_option_list = int(input("Selecciones una opción: "))
-                option_selected = element.get_option(number_option_list)
-                option_selected.execute()
+                    number_option_list = int(input("Selecciones una opción: "))
+                    option_selected = element.get_option(number_option_list)
+                    option_selected.execute()
+                self.back()
         self.back
 
     def array_submenu_options(self):

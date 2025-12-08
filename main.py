@@ -1,5 +1,6 @@
 from menu import Menu
 from god_xml import GodXML
+from user_manager import UserManager
 
 # main function
     # ver si hay un XML en la carpeta de trabajo.
@@ -79,7 +80,10 @@ if __name__ == "__main__" :
         ██▄▄█▀ ██ ██▄▄█▀ ██████ ██ ▀████▀   ██   ██▄▄▄▄ ▀█████ ██  ██
         {xml_manager.filename} {'Nuevo archivo' if opcion - 1 == 0 else ''}
     """
-    mainMenu = Menu(title=TITLE1)
+
+    user_manager = UserManager(xml=xml_manager)
+
+    mainMenu = Menu(title=TITLE1, user_manager=user_manager)
 
     mainMenu.show_windows_menu()
 
