@@ -153,7 +153,7 @@ class Menu:
 
                 # Limpiar pantalla para redibujar
 
-                os.system("cls")
+                # os.system("cls")
         else:
             if 0 <= number_option <= len(self.element_list):
                 element = self.element_list[number_option]
@@ -224,7 +224,7 @@ class Menu:
 
                 # Limpiar pantalla para redibujar
 
-                os.system("cls")
+                # os.system("cls")
         else:
             while True:
                 self.show_submenu()
