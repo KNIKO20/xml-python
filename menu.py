@@ -161,7 +161,7 @@ class Menu:
                     print("-" * 4 + "[" + element.nombre + "]" + "-" * 4)
                     element.show_option_list()
 
-                    number_option_list = int(input("Selecciones una opción: "))
+                    number_option_list = int(input("Seleccione una opción: "))
 
                     # Verificar si es la opción "Salir" (última opción)
                     if number_option_list == len(element.get_array_options()) - 1:
