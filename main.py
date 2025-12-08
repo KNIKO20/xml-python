@@ -58,19 +58,19 @@ if __name__ == "__main__" :
     
     available_files.insert(0,'NUEVO FICHERO')
     available_files_len = len(available_files)
-    
-    opcion = available_files_len + 1
+    opcion = 0
 
     if available_files_len > 1:
         print('Encontramos los siguientes ficheros xml, disponibles, quieres elegir uno: ')
         
         for i in range(available_files_len):
-            print((' ' * 5) + f'[{i + 1}] ' + available_files[i])
+            print((' ' * 5) + f'[{i}] ' + available_files[i])
 
         opcion = int(input("Seleccione una opción: "))
     
-    if opcion > 1:
-        xml_manager.cargar_fichero(available_files[opcion - 1])
+
+    if opcion > 0:
+        xml_manager.cargar_fichero(available_files[opcion])
     else:
         xml_manager.init_fichero()
         xml_manager.guardar_cambios()
@@ -80,7 +80,7 @@ if __name__ == "__main__" :
         █████▄ ██ █████▄ ██     ██ ▄████▄ ██████ ██████ ▄█████ ▄████▄ 
         ██▄▄██ ██ ██▄▄██ ██     ██ ██  ██   ██   ██▄▄   ██     ██▄▄██ 
         ██▄▄█▀ ██ ██▄▄█▀ ██████ ██ ▀████▀   ██   ██▄▄▄▄ ▀█████ ██  ██
-        Fichero {xml_manager.filename} {'Nuevo archivo' if opcion - 1 == 0 else ''}
+        Fichero {xml_manager.filename} {'Nuevo archivo' if opcion == 0 else ''}
     """
 
     user_manager = UserManager(xml=xml_manager)

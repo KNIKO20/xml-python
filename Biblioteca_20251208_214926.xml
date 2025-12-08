@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<biblioteca><libros><libro id="001"><nombre>asdf</nombre><autor>asdf</autor><fechaPublicacion>sad</fechaPublicacion></libro></libros><usuarios><usuario id="20251208214957"><nombre>Joanthan </nombre><apellidos>ARias</apellidos><correo>asd@da.com</correo><fechaNacimiento>2023-11-22</fechaNacimiento></usuario></usuarios><prestamos><prestamo id="001" libro="001" usuario="20251208214957" /></prestamos></biblioteca>
