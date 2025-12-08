@@ -1,4 +1,5 @@
-from borrow_manager import BorrowManager
+from menu import Menu
+from god_xml import GodXML
 
 # main function
     # ver si hay un XML en la carpeta de trabajo.
@@ -9,7 +10,7 @@ from borrow_manager import BorrowManager
 
         # Un nuevo XML:  
             # Hacer preguntas para crear el XML (libros y usarios)
-            
+        
             # Bucle libros:
                 # nombre: string
                 # autor: string
@@ -43,9 +44,41 @@ from borrow_manager import BorrowManager
                 # PRESTAMO: 
                 # DEVOLUCION:
 
+# creo que vamos hacer mas eficientes si cada
+# uno se adjudica una funcion del packete xml
+
 
 if __name__ == "__main__" :
 
-    cmd = input('ingresa un numero: ')
+    xml_manager = GodXML()
+    available_files = xml_manager.buscar_ficheros('./')
+    
+    available_files.insert(0,'NUEVO FICHERO')
+    available_files_len = len(available_files)
+    
+    opcion = available_files_len + 1
+
+    if available_files_len > 1:
+        print('Encontramos los siguientes ficheros xml, disponibles, quieres elegir uno: ')
+        
+        for i in range(available_files_len):
+            print((' ' * 5) + f'[{i + 1}] ' + available_files[i])
+
+        opcion = int(input("Seleccione una opción: "))
+    
+    if opcion > 1:
+        xml_manager.cargar_fichero(available_files[opcion - 1])
+    else:
+        pass
+
+    TITLE1 = f"""                                                                                                              
+        █████▄ ██ █████▄ ██     ██ ▄████▄ ██████ ██████ ▄█████ ▄████▄ 
+        ██▄▄██ ██ ██▄▄██ ██     ██ ██  ██   ██   ██▄▄   ██     ██▄▄██ 
+        ██▄▄█▀ ██ ██▄▄█▀ ██████ ██ ▀████▀   ██   ██▄▄▄▄ ▀█████ ██  ██
+        {available_files[opcion - 1]}
+    """
+    mainMenu = Menu(title=TITLE1)
+
+    mainMenu.show_windows_menu()
 
     print("+"*20)
