@@ -3,6 +3,8 @@
 import os
 from sys import platform
 from user_manager import UserManager
+from libros import LibroManager
+from prestamo import PrestamoManager
 
 if(platform=="win32"):
     import msvcrt
@@ -19,7 +21,7 @@ GRAY = "\x1b[90m"
 class Menu:
     """Class representing a menu interface."""
 
-    def __init__(self, title, user_manager: UserManager):
+    def __init__(self, title, user_manager: UserManager, libro_manager: LibroManager, prestamo_manager: PrestamoManager):
         self.title = title
         self.element_list = [
             SubMenu(
@@ -56,19 +58,22 @@ class Menu:
                     Option(
                         "Añadir",
                         "/Help",
+                        libro_manager.addInfo
                     ),
                     Option(
                         "Mostrar",
                         "/Help",
+                        libro_manager.showInfo
                     ),
                     Option(
                         "Eliminar",
                         "/Help",
+                        libro_manager.deleteInfo
                     ),
                     Option(
                         "Busqueda",
                         "/Help",
-                        self.busqueda
+                        libro_manager.searchInfo
                     ),
                     Option("Salir", "/Help", self.back),
                 ],
@@ -80,10 +85,12 @@ class Menu:
                     Option(
                         "Prestar",
                         "/Help",
+                        prestamo_manager.prestar
                     ),
                     Option(
                         "Devolver",
                         "/help",
+                        prestamo_manager.devolver
                     ),
                     Option("Salir", "/Help", self.back),
                 ],
@@ -100,9 +107,6 @@ class Menu:
         else:
             self.show_submenu()
             self.select_option(int(input("Selecciona una opcion: ")))
-    
-    def busqueda(self):
-        print("Buscando...")
 
     def show_submenu(self):
         """
@@ -151,17 +155,20 @@ class Menu:
 
                 os.system("cls")
         else:
-            while True:
-                if 0 <= number_option <= len(self.element_list):
-                    element = self.element_list[number_option]
+            if 0 <= number_option <= len(self.element_list):
+                element = self.element_list[number_option]
+                while True:
                     print("-" * 4 + "[" + element.nombre + "]" + "-" * 4)
                     element.show_option_list()
 
                     number_option_list = int(input("Selecciones una opción: "))
+
+                    # Verificar si es la opción "Salir" (última opción)
+                    if number_option_list == len(element.get_array_options()) - 1:
+                        break  # Vuelve al menú principal
+
                     option_selected = element.get_option(number_option_list)
                     option_selected.execute()
-                self.back()
-        self.back
 
     def array_submenu_options(self):
         """
@@ -209,20 +216,21 @@ class Menu:
                 elif tecla == b"P":  # Flecha abajo
                     seleccion = (seleccion + 1) % len(opciones)
                 elif tecla == b"\r":  # Enter
-                    # print(f"Has elegido: {opciones[seleccion]}")                    
+                    # print(f"Has elegido: {opciones[seleccion]}")
                     if opciones[seleccion] == "Salir":
                         break
                     else:
                         self.select_option(seleccion)
-                        break
 
                 # Limpiar pantalla para redibujar
 
                 os.system("cls")
         else:
-            self.show_submenu()
-            option_selected = int(input("Selecciona una opcion: "))
-            if(option_selected==len(self.element_list)-1):
-                print("Saliendo...")
-            else:
-                self.select_option(option_selected)
+            while True:
+                self.show_submenu()
+                option_selected = int(input("Selecciona una opcion: "))
+                if(option_selected==len(self.element_list)-1):
+                    print("Saliendo...")
+                    break
+                else:
+                    self.select_option(option_selected)

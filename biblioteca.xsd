@@ -46,7 +46,7 @@
 				<xs:element name="prestamos" maxOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="prestamos"
+							<xs:element name="prestamo"
 								type="prestamoType" />
 						</xs:sequence>
 					</xs:complexType>

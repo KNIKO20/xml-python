@@ -1,6 +1,8 @@
 from menu import Menu
 from god_xml import GodXML
 from user_manager import UserManager
+from libros import LibroManager
+from prestamo import PrestamoManager
 
 # main function
     # ver si hay un XML en la carpeta de trabajo.
@@ -78,12 +80,14 @@ if __name__ == "__main__" :
         █████▄ ██ █████▄ ██     ██ ▄████▄ ██████ ██████ ▄█████ ▄████▄ 
         ██▄▄██ ██ ██▄▄██ ██     ██ ██  ██   ██   ██▄▄   ██     ██▄▄██ 
         ██▄▄█▀ ██ ██▄▄█▀ ██████ ██ ▀████▀   ██   ██▄▄▄▄ ▀█████ ██  ██
-        {xml_manager.filename} {'Nuevo archivo' if opcion - 1 == 0 else ''}
+        Fichero {xml_manager.filename} {'Nuevo archivo' if opcion - 1 == 0 else ''}
     """
 
     user_manager = UserManager(xml=xml_manager)
+    libro_manager = LibroManager(xml=xml_manager)
+    prestamo_manager = PrestamoManager(xml=xml_manager)
 
-    mainMenu = Menu(title=TITLE1, user_manager=user_manager)
+    mainMenu = Menu(title=TITLE1, user_manager=user_manager, libro_manager=libro_manager, prestamo_manager=prestamo_manager)
 
     mainMenu.show_windows_menu()
 
